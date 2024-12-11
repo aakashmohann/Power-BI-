@@ -1,0 +1,7 @@
+= let
+    Source = Oracle.Database("pgren.cargill.com"), 
+    #"Run Native Query" = Value.NativeQuery( Source, "SELECT to_char(TO_DATE(current_date - 1), 'yyyymmdd') AS date_key,#(lf)'F0902' As table_name,#(lf)'GL Balance' AS table_description, #(lf)Count(1) AS record_count#(lf)FROM JDE_W_STAGE.F0902#(lf)WHERE TO_DATE(rdinsertdate) < TO_DATE(current_date)",null,[Enablezfolding= true])
+in
+    Source
+
+#Download Oracle Client for microsoft tool and the create tnsnames.ora file and keep it as environment variable
